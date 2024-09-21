@@ -1,11 +1,16 @@
 import os
 import pickle
 import random
+import pathlib
 import pandas as pd
 import streamlit as st
 
-model = pickle.load(open('football_predictions/model.pkl', 'rb'))
-database = pd.read_csv('football_predictions/database.csv')
+code_dir = pathlib.Path(__file__).parent.resolve()
+files_location = code_dir / ".."/"football_predictions"
+files_location = files_location.resolve()
+
+model = pickle.load(open(files_location+'/model.pkl', 'rb'))
+database = pd.read_csv(files_location+'/database.csv')
 
 
 st.set_page_config(page_title="Football Match Predictor", page_icon="⚽", layout="wide")
