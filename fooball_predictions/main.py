@@ -9,8 +9,10 @@ code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".."/"football_predictions"
 files_location = files_location.resolve()
 
-model = pickle.load(open(files_location+'/model.pkl', 'rb'))
-database = pd.read_csv(files_location+'/database.csv')
+print(f':files{files_location}')
+
+model = pickle.load(open(str(files_location/'model.pkl'), 'rb'))
+database = pd.read_csv(str(files_location/ 'database.csv'))
 
 
 st.set_page_config(page_title="Football Match Predictor", page_icon="⚽", layout="wide")
