@@ -1,10 +1,14 @@
+import os
 import pickle
 import random
 import pandas as pd
 import streamlit as st
 
-model = pickle.load(open("model.pkl", 'rb'))
-database = pd.read_csv('database.csv')
+model_path = os.path.join(os.getcwd(), 'model.pkl')
+database_path = os.path.join(os.getcwd(), 'database.csv')
+
+model = pickle.load(open(model_path, 'rb'))
+database = pd.read_csv(database_path)
 
 
 st.set_page_config(page_title="Football Match Predictor", page_icon="⚽", layout="wide")
