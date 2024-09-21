@@ -9,8 +9,6 @@ code_dir = pathlib.Path(__file__).parent.resolve()
 files_location = code_dir / ".."/"football_predictions"
 files_location = files_location.resolve()
 
-print(f':files{files_location}')
-
 model = pickle.load(open(str(files_location/'model.pkl'), 'rb'))
 database = pd.read_csv(str(files_location/ 'database.csv'))
 
